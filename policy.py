@@ -180,10 +180,7 @@ class StaticPolicy(object):
 				if h.name in edge.neighbors:
 					outport = topo.ports[edge.name][h.name]
 				else:
-					if h.vlans[0]==0:
-						outport = topo.ports[edge.name][topo.getVlanCore(0)]
-					else:
-						outport = topo.ports[edge.name][topo.getVlanCore(1)]
+					outport = topo.ports[edge.name][topo.getVlanCore(h.vlans[0])
 
 				routingTable[edge.dpid].append({
 					'eth_dst' : h.eth,
