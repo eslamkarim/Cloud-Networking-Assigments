@@ -185,12 +185,12 @@ class StaticPolicy(object):
 					else:
 						outport = topo.ports[edge.name][topo.getVlanCore(1)]
 
-                routingTable[edge.dpid].append({
-                    'eth_dst' : h.eth,
-                    'output' : [outport],
-                    'priority' : 2,
-                    'type' : 'dst'
-                })
+				routingTable[edge.dpid].append({
+					'eth_dst' : h.eth,
+					'output' : [outport],
+					'priority' : 2,
+					'type' : 'dst'
+					})
 
         return flood.add_arpflood(routingTable, topo)
 
